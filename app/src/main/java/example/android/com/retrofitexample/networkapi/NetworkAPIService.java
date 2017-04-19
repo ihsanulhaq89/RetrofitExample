@@ -4,6 +4,7 @@ import example.android.com.retrofitexample.dto.LoginResponse;
 import example.android.com.retrofitexample.dto.UserDetailResponse;
 import example.android.com.retrofitexample.dto.UserResponse;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -18,6 +19,10 @@ public interface NetworkAPIService {
     @FormUrlEncoded
     @POST("/user/login")
     Call<LoginResponse> loginUser(@Field("email") String email, @Field("password") String password);
+
+
+    @POST("users")
+    Call<Void> createUserWithJson(@Body UserRequest user);
 
 
     @FormUrlEncoded
